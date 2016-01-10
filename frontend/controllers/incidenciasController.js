@@ -20,6 +20,18 @@ Incidence.controller("incidencesController", function($scope,$http,$mdDialog, in
      $scope.stateUpdate = function(idIncidence) {
     console.log('idIncidence:'+idIncidence);
   }
+  //Listener botón menu
+  $scope.openMenu = function($mdOpenMenu, ev) {
+      originatorEv = ev;
+      $mdOpenMenu(ev);
+    };
+  // Opciones de menu
+  $scope.addIncidence= function() {
+  window.location.href = "http://apps.socialdeveloper.org/incidences/#/addIncidence";
+   }
+   $scope.showIncidences= function() {
+  window.location.href = "http://apps.socialdeveloper.org/incidences/#/home";
+   }
     //Dialog
     $scope.showAlert = function(ev,idIncidence) {
     $mdDialog.show(

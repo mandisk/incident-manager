@@ -3,7 +3,10 @@ var configIncidence = function($routeProvider){
     $routeProvider.when("/home", {
         controller: "incidencesController",
         templateUrl: "views/home.html"
-    });
+    }).when('/addIncidence', {
+        templateUrl: 'views/addIncidence.html',
+        controller: 'incidencesController'
+      });
  
 }
  
