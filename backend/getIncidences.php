@@ -2,7 +2,7 @@
  
 $server = "db566323319.db.1and1.com";
 $user = "dbo566323319";
-$pass = "vorndran123456";
+$pass = "";
 $bd = "db566323319";
  
 //Creamos la conexión
