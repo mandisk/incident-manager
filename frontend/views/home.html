@@ -1,51 +1,98 @@
- <!--añadimos aquí el controlador notasController-->
+<!--
+    añadimos aquí el controlador notasController
+-->
 <div ng-controller="incidencesController">
-<div ng-repeat="incidence in incidences" layout="column" style="margin:0 auto;" flex-gt-sm="50" flex-xs="90" flex="90">
-  <md-card>
-        <md-card-header>
-          <md-card-header-text>
-            <span class="md-title">Incidencia: {{incidence.name}}</span>
-            <span class="md-subhead">Autor: {{incidence.author}}</span>
-          </md-card-header-text>
-        </md-card-header>
-        <md-card-actions layout="row" layout-align="start center">
-          <md-button class="md-raised" ng-click="showAlert($event,incidence.idIncidence)">Ver historial</md-button>
-        </md-card-actions>
-        <md-card-content>
-        <span>Descripción: {{incidence.description}}</span><br>
-        <span>Prioridad: {{incidence.idPriority}} 
-        <md-input-container>
-        <label>Prioridad:</label>
-        <md-select ng-model="numOption[incidence.idIncidence]" layout="row" layout-align="start start">
-          <md-option value="0">Crítico</md-option>
-          <md-option value="1">Alto</md-option>
-          <md-option value="2">Medio</md-option>
-          <md-option value="3">Bajo</md-option>
-        </md-select>
-      </md-input-container>
-      </span><br>
-        <span>Fecha: {{incidence.date}}</span><br>
-        <md-input-container>
-        <label>Estado:</label>
-        <md-select ng-model="numEstado[incidence.idIncidence]" ng-change="stateUpdate(incidence.idIncidence)" layout="row" layout-align="start start">
-          <md-option value="0">Abierta</md-option>
-          <md-option value="1">Resolviéndose</md-option>
-          <md-option value="2">Se necesita Feedback</md-option>
-          <md-option value="3">Cerrada</md-option>
-          <md-option value="4">Resuelta</md-option>
-          <md-option value="5">Duplicada</md-option>
-          <md-option value="6">No se resuelve</md-option>
-        </md-select>
-      </md-input-container>
-      <md-input-container id="{{incidence.idIncidence}}" class="md-block" style="display:none;" flex-gt-sm>
-            <label>Comentario:</label>
-            <input ng-model="comment">
-          </md-input-container>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end start">
-          <md-button class="md-raised">Editar</md-button>
-        </md-card-actions>
-      </md-card>
-  </div>
+    <div ng-repeat="incidence in incidences" layout="column" style="margin:0 auto;" flex-gt-sm="50" flex-xs="90" flex="90">
+        <md-card>
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">
+                        Incidencia: {{incidence.name}}
+                    </span>
+                    <span class="md-subhead">
+                        Autor: {{incidence.author}}
+                    </span>
+                </md-card-header-text>
+            </md-card-header>
+            <md-card-actions layout="row" layout-align="start center">
+                <md-button class="md-raised" ng-click="showAlert($event,incidence.idIncidence)">
+                    Ver historial
+                </md-button>
+            </md-card-actions>
+            <md-card-content>
+                <span>
+                    Descripción: {{incidence.description}}
+                </span>
+                <br/>
+                <span>
+                    Prioridad: {{incidence.idPriority}}
+                    <md-input-container>
+                        <label>
+                            Prioridad:
+                        </label>
+                        <md-select ng-model="numOption[incidence.idIncidence]" layout="row" layout-align="start start">
+                            <md-option value="0">
+                                Crítico
+                            </md-option>
+                            <md-option value="1">
+                                Alto
+                            </md-option>
+                            <md-option value="2">
+                                Medio
+                            </md-option>
+                            <md-option value="3">
+                                Bajo
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </span>
+                <br/>
+                <span>
+                    Fecha: {{incidence.date}}
+                </span>
+                <br/>
+                <md-input-container>
+                    <label>
+                        Estado:
+                    </label>
+                    <md-select ng-model="numEstado[incidence.idIncidence]" ng-change="stateUpdate(incidence.idIncidence)" layout="row" layout-align="start start">
+                        <md-option value="0">
+                            Abierta
+                        </md-option>
+                        <md-option value="1">
+                            Resolviéndose
+                        </md-option>
+                        <md-option value="2">
+                            Se necesita Feedback
+                        </md-option>
+                        <md-option value="3">
+                            Cerrada
+                        </md-option>
+                        <md-option value="4">
+                            Resuelta
+                        </md-option>
+                        <md-option value="5">
+                            Duplicada
+                        </md-option>
+                        <md-option value="6">
+                            No se resuelve
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container id="{{incidence.idIncidence}}" class="md-block" style="display:none;" flex-gt-sm>
+                    <label>
+                        Comentario:
+                    </label>
+                    <input ng-model="comment"/>
+                </md-input-container>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end start">
+                <md-button class="md-raised">
+                    Editar
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </div>
-<script src="js/home.js"></script>
+<script src="js/home.js">
+</script>
