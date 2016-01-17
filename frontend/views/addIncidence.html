@@ -1,59 +1,88 @@
- <!--añadimos aquí el controlador-->
+<!--
+    añadimos aquí el controlador
+-->
 <div ng-controller="incidencesController">
- <md-content layout-padding>
-    <div>
-      <form flex-gt-sm="60" style="margin:0 auto;" name="userForm">
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>First name</label>
-            <input ng-model="user.firstName">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Last Name</label>
-            <input ng-model="theMax">
-          </md-input-container>
+    <md-content layout-padding>
+        <div>
+            <form flex-gt-sm="60" style="margin:0 auto;" name="userForm">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>
+                            Nombre
+                        </label>
+                        <input ng-model="incidence.name"/>
+                    </md-input-container>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>
+                            Autor
+                        </label>
+                        <input ng-model="incidence.author"/>
+                    </md-input-container>
+                </div>
+                <md-input-container class="md-block">
+                    <label>
+                        Descripción
+                    </label>
+                    <textarea ng-model="incidence.description" columns="1" md-maxlength="150" rows="5">
+                    </textarea>
+                </md-input-container>
+                <div layout="row">
+                    <md-input-container flex="50">
+                        <label>
+                            Prioridad:
+                        </label>
+                        <md-select ng-model="incidence.priority"  layout="row" layout-align="start start">
+                            <md-option value="0">
+                                Crítico
+                            </md-option>
+                            <md-option value="1">
+                                Alto
+                            </md-option>
+                            <md-option value="2">
+                                Medio
+                            </md-option>
+                            <md-option value="3">
+                                Bajo
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex="50">
+                        <label>
+                            Estado:
+                        </label>
+                        <md-select ng-model="incidence.state" ng-change="stateUpdate(incidence.idIncidence)" layout="row" layout-align="start start">
+                            <md-option value="0">
+                                Abierta
+                            </md-option>
+                            <md-option value="1">
+                                Resolviéndose
+                            </md-option>
+                            <md-option value="2">
+                                Se necesita Feedback
+                            </md-option>
+                            <md-option value="3">
+                                Cerrada
+                            </md-option>
+                            <md-option value="4">
+                                Resuelta
+                            </md-option>
+                            <md-option value="5">
+                                Duplicada
+                            </md-option>
+                            <md-option value="6">
+                                No se resuelve
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-align="end start">
+                    <md-button ng-click="saveIncidence()" class="md-raised">
+                        Añadir incidencia
+                    </md-button>
+                </div>
+            </form>
         </div>
-        <md-input-container class="md-block">
-          <label>Address</label>
-          <input ng-model="user.address">
-        </md-input-container>
-        <md-input-container md-no-float class="md-block">
-          <input ng-model="user.address2" placeholder="Address 2">
-        </md-input-container>
-        <div layout-gt-sm="row">
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>City</label>
-            <input ng-model="user.city">
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>State</label>
-            <md-select ng-model="user.state">
-              <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                {{state.abbrev}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Postal Code</label>
-            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
-                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
-              </div>
-              <div ng-message="md-maxlength" class="my-message">
-                Don't use the long version silly...we don't need to be that specific...
-              </div>
-            </div>
-          </md-input-container>
-        </div>
-        <md-input-container class="md-block">
-          <label>Biography</label>
-          <textarea ng-model="user.biography" columns="1" md-maxlength="150" rows="5"></textarea>
-        </md-input-container>
-      </form>
-    </div>
-  </md-content>
+    </md-content>
 </div>
-<script src="js/home.js"></script>
+<script src="js/home.js">
+</script>
